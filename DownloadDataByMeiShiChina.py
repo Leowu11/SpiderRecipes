@@ -34,7 +34,7 @@ while(id < 363298):
 		for img in recipe_img:
 			img_html = img.find("img").get("src")
 			print(img_html)
-			file = open('C:\\Code\\Recipes\\Data\\MeiShiChina\\' + recipe_name + '.jpg',"wb")
+			file = open('.\\' + recipe_name + '.jpg',"wb")
 			req = urllib.request.Request(url=img_html, headers=headers) 
 			try:
 				image = urllib.request.urlopen(req, timeout=10)
@@ -75,7 +75,7 @@ while(id < 363298):
 				img_html = img_html.get("src")
 				print(img_html)
 
-				file = open("C:\\Code\\Recipes\\Data\\MeiShiChina\\" + recipe_name + "_" + str(number) + ".jpg","wb")
+				file = open(".\\" + recipe_name + "_" + str(number) + ".jpg","wb")
 				req = urllib.request.Request(url=img_html, headers=headers) 
 				number = number + 1
 				try:
@@ -106,7 +106,7 @@ while(id < 363298):
 			print(tip.text)
 
 		# 全部写入TXT文件
-		file = open("C:\\Code\\Recipes\\Data\\MeiShiChina\\" + recipe_name + ".txt", "w")
+		file = open(".\\" + recipe_name + ".txt", "w")
 		full_text = []
 		full_text.append(recipe_name)
 		full_text.append(recipe_material)

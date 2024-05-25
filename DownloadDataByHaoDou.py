@@ -93,7 +93,7 @@ while(id < 1201100):
 		img_html = soup.find(id="showcover").get('src')
 		print("获取图片为：" + img_html)
 
-		file = open('C:\\Code\\Recipes\\Data\\HaoDou\\14059_1201100\\' + recipe_name + '.jpg',"wb")
+		file = open('.\\' + recipe_name + '.jpg',"wb")
 		req = urllib.request.Request(url=img_html, headers=headers) 
 		try:
 			image = urllib.request.urlopen(req, timeout=10)
@@ -139,7 +139,7 @@ while(id < 1201100):
 		for text in full_text_step_img:			
 			print(text.get('src'))
 			img_html = text.get('src')
-			file = open('C:\\Code\\Recipes\\Data\\HaoDou\\14059_1201100\\' + recipe_name + '_' + str(img_number) + '.jpg',"wb")
+			file = open('.\\' + recipe_name + '_' + str(img_number) + '.jpg',"wb")
 			req = urllib.request.Request(url=img_html, headers=headers) 
 			img_number = img_number + 1
 			try:	
@@ -168,7 +168,7 @@ while(id < 1201100):
 		print(full_text_tip)
 
 		# 全部写入TXT文件
-		file = open('C:\\Code\\Recipes\\Data\\HaoDou\\14059_1201100\\' + recipe_name + '.txt', 'w')
+		file = open('.\\' + recipe_name + '.txt', 'w')
 		full_text = []
 		full_text.append(full_text_introduction)
 		full_text.append(full_text_ingredients)
