@@ -8,3 +8,5 @@ def open_http(url):
     html_doc = res.text
     if html_doc :
         return html_doc
+    else:
+        return ""
