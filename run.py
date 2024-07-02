@@ -5,6 +5,7 @@ from time import sleep
 import lxml
 import urllib.parse
 
+import WriteXml
 from open_requests import open_http
 from bs4 import BeautifulSoup
 
@@ -30,22 +31,52 @@ def data_pages(deta):
 
             metarial = open_one_link_date_bea.find(class_="metarial")
             # print(metarial)
-            _blank = re.compile('<a href=.*?target=".*?">(.*?)</a>')
-            peliao_list = (re.findall(_blank, str(metarial)))
-            # print(peliao_list)
+            peliao_list=[]
+            if  "scname" in str(metarial):
+                for ran in metarial.find_all('span', class_="scname"):
+                    # data_scname=ran.get_text("")
+                    print(ran)
+                    _blank = re.compile('<a href=.*?target=".*?">(.*?)</a>')
+                    peliao = (re.findall(_blank, str(ran)))
+                    if peliao:
+                        pass
+                    else:
+                        not_blank = re.compile('<span class=.*?>(.*?)</span>')
+                        peliao = (re.findall(not_blank, str(ran)))
+                    peliao_list.append(peliao[0])
+            else:
+                peliao_list=[]
+
+
+
+            # _blank = re.compile('<a href=.*?target=".*?">(.*?)</a>')
+            # peliao_list = (re.findall(_blank, str(metarial)))
+            print(peliao_list)
             liang_blank = re.compile('<span class="right scnum">(.*?)</span>')
             lianglist = re.findall(liang_blank, str(metarial))
             # print(lianglist)
+            new_liang=[item if item else '适量' for item in lianglist]
+            print(new_liang)
+
+
             step = open_one_link_date_bea.find(class_="step")
             # print(step)
             set_list = []
             img_link_list = []
             for step_list_data in step.find_all(class_="stepinfo"):
                 # print(step_list_data)
-                re_step = re.compile('<div class="stepinfo">\s*<p>.*?\d+</p>\s*(.*?)\s*</div>')
-                step_list_data = re.findall(re_step, str(step_list_data))
-                # print(step_list_data)
-                set_list.append(step_list_data)
+                pattern = r"[\u4e00-\u9fa5，。、；：？！]+"
+                matches = re.findall(pattern, re.sub('<[^<]+?>', '', str(step_list_data)))
+                extracted_text = ''.join(matches)
+                set_list.append(extracted_text.replace("步骤",""))
+                # re_step = re.compile('<div class="stepinfo">\s*<p>.*?\d+</p>\s*(.*?)\s*</div>')
+                # step_list_data = re.findall(re_step, str(step_list_data))
+                # # print(step_list_data)
+                # if step_list_data:
+                #     set_list.append(step_list_data[0])
+                # else:
+                #     set_list.append("null")
+
             for img_link in step.find_all(class_="stepcont clearfix"):
                 # print("------------------------------------------------------------------------------------------------------")
                 re_link_com = re.compile('data-origin="(.*?)"')
@@ -53,7 +84,12 @@ def data_pages(deta):
                 img_link_list.append(re_link)
             print(img_link_list)
             print(set_list)
+            if len(img_link_list)==len(set_list):
+                print(ulr_id + " xiaotong")
+            else:
+                print(ulr_id+" buxiaotong " + str(len(img_link_list)) +"-------" +str(len(set_list)))
             sleep(5)
+            # WriteXml.write(id,name,set_list,set_list)
         else:
             pass
 
