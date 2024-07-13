@@ -95,7 +95,7 @@ def data_pages(deta):
                 data = [{
                     'id': ulr_id,
                     'name': rename[0],
-                    'type':'家常菜',
+                    # 'type':'家常菜',
                     'materials': mate,
                     'links': img_link_list,
                     'actions': set_list
@@ -117,21 +117,27 @@ header = soup.find(class_="imublo clearfix")
 channel = []
 for link in header.find_all("a"):
     channel.append(url + link.get('href'))
-
+# print(channel)
+#
 for link_1 in channel:
-    # res_1 = open_http(link_1)
-    # print(res_1)
+    print(link_1)
     url_en = urllib.parse.quote(link_1, safe='/:')
     res_1 = open_http(url_en)
     res_soup = BeautifulSoup(res_1, "html.parser")
+    # print("++++++++++++++++++++++++++++++++++")
     # print(res_soup)
+    # print("++++++++++++++++++++++++++++++++++")
     sort_more = res_soup.find(class_="sort-more")
     # print(sort_more)
     one_link = []
-    for more_link in sort_more.find_all("a"):
-        one_link.append(url + more_link.get("href"))
+    # sleep(5)
+    if "sort-more" in str(sort_more):
+        for more_link in sort_more.find_all("a"):
+            one_link.append(url + more_link.get("href"))
+        one_link1 = one_link[0]
+    else:
+        continue
 
-    one_link1 = one_link[0]
     # print(one_link1)
 
     date_rest = open_http(one_link1)
@@ -150,5 +156,7 @@ for link_1 in channel:
             date_rest = open_http(link_list_anext[0])
             deta_soup = BeautifulSoup(date_rest, "html.parser")
             mt20 = deta_soup.find(class_='pages')
+            print(mt20)
         else:
+            print("end"+"==========================")
             break
