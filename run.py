@@ -91,10 +91,11 @@ def data_pages(deta):
                 print(ulr_id + " buxiaotong " + str(len(img_link_list)) + "-------" + str(len(set_list)))
             sleep(5)
             # WriteXml.write(id,name,set_list,set_list)
-            if all([ulr_id, rename[0], img_link_list, set_list]):
+            if all([ulr_id, rename[0],mate, img_link_list, set_list]):
                 data = [{
                     'id': ulr_id,
                     'name': rename[0],
+                    'type':'家常菜',
                     'materials': mate,
                     'links': img_link_list,
                     'actions': set_list

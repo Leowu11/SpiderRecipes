@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e528c43-4a03-4e67-9a96-089106245941" name="Changes" comment="update 070202">
-      <change afterPath="$PROJECT_DIR$/WriteDb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WriteXml.py" beforeDir="false" />
+    <list default="true" id="8e528c43-4a03-4e67-9a96-089106245941" name="Changes" comment="add db11">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WriteDb.py" beforeDir="false" afterPath="$PROJECT_DIR$/WriteDb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.run">
     <configuration name="MyQSLTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SpiderRecipes" />
       <option name="ENV_FILES" value="" />
@@ -167,8 +167,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.run" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.WriteDb" />
         <item itemvalue="Python.MyQSLTest" />
         <item itemvalue="Python.WriteXml" />
@@ -247,7 +247,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719935481933</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add db">
+      <option name="closed" value="true" />
+      <created>1720511561835</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720511561835</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add db11">
+      <option name="closed" value="true" />
+      <created>1720511588009</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720511588009</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -258,6 +274,8 @@
     <MESSAGE value="update 06302144" />
     <MESSAGE value="update 0702" />
     <MESSAGE value="update 070202" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 070202" />
+    <MESSAGE value="add db" />
+    <MESSAGE value="add db11" />
+    <option name="LAST_COMMIT_MESSAGE" value="add db11" />
   </component>
 </project>

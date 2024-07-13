@@ -14,7 +14,7 @@ def writeDb(data):
 
     # 如果数据表不存在，则创建数据表
     if not table_exists:
-        cursor.execute("CREATE TABLE data (id INT PRIMARY KEY, name TEXT)")
+        cursor.execute("CREATE TABLE data (id INT PRIMARY KEY, type TEXT ,name TEXT)")
 
     # 检查链接表是否存在
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='links'")
@@ -22,7 +22,7 @@ def writeDb(data):
 
     # 如果链接表不存在，则创建链接表
     if not table_exists:
-        cursor.execute("CREATE TABLE links (data_id INT, link TEXT)")
+        cursor.execute("CREATE TABLE links (data_id INT, step TEXT,link TEXT)")
 
     # 检查操作表是否存在
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='actions'")
@@ -30,7 +30,7 @@ def writeDb(data):
 
     # 如果操作表不存在，则创建操作表
     if not table_exists:
-        cursor.execute("CREATE TABLE actions (data_id INT, action TEXT)")
+        cursor.execute("CREATE TABLE actions (data_id INT, icon TEXT ,action TEXT)")
 
         # 检查操作表是否存在
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='materials'")
@@ -64,21 +64,25 @@ def writeDb(data):
 
     # 插入数据
     for item in data:
-        values = (int(item['id']), str(item['name']))
-        cursor.execute("INSERT OR IGNORE INTO data (id, name) VALUES (?, ?)", values)
+        values = (int(item['id']), item['type'],str(item['name']))
+        cursor.execute("INSERT OR IGNORE INTO data (id, type ,name) VALUES (?,?, ?)", values)
 
         # data_id = cursor.lastrowid
 
-        for link in item['links']:
-            values = (int(item['id']), link)
-            cursor.execute("INSERT INTO links (data_id, link) VALUES (?, ?)", values)
+        for b in range(0,len(item['links'])):
+            link=item['links'][b]
+            links_pyte="步骤"+str(b+1)+"图片"
+            values = (int(item['id']),links_pyte , link)
+            cursor.execute("INSERT OR IGNORE INTO links (data_id, step ,link) VALUES (?, ? , ?)", values)
 
-        for action in item['actions']:
-            values = (int(item['id']), action)
-            cursor.execute("INSERT INTO actions (data_id, action) VALUES (?, ?)", values)
+        for a in range(0,len(item['actions'])):
+            action=item['actions'][a]
+            action_icon="步骤"+str(a+1)+"链接"
+            values = (int(item['id']),action_icon, action)
+            cursor.execute("INSERT OR IGNORE INTO actions (data_id, icon,action) VALUES (?, ?,?)", values)
         for mate in item['materials']:
             values = (int(item['id']), mate)
-            cursor.execute("INSERT INTO materials (data_id, material) VALUES (?, ?)", values)
+            cursor.execute("INSERT OR IGNORE INTO materials (data_id, material) VALUES (?, ?)", values)
 
     connection.commit()
     connection.close()
