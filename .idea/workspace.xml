@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e528c43-4a03-4e67-9a96-089106245941" name="Changes" comment="add ab 11111">
+    <list default="true" id="8e528c43-4a03-4e67-9a96-089106245941" name="Changes" comment="add ab 1323">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WriteDb.py" beforeDir="false" afterPath="$PROJECT_DIR$/WriteDb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/open_requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_requests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
@@ -280,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720856529408</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add ab 1323">
+      <option name="closed" value="true" />
+      <created>1720862969445</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1720862969445</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -294,6 +301,7 @@
     <MESSAGE value="add db" />
     <MESSAGE value="add db11" />
     <MESSAGE value="add ab 11111" />
-    <option name="LAST_COMMIT_MESSAGE" value="add ab 11111" />
+    <MESSAGE value="add ab 1323" />
+    <option name="LAST_COMMIT_MESSAGE" value="add ab 1323" />
   </component>
 </project>

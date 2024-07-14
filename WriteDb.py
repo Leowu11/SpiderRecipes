@@ -14,7 +14,7 @@ def writeDb(data):
 
     # 如果数据表不存在，则创建数据表
     if not table_exists:
-        cursor.execute("CREATE TABLE data (id INT PRIMARY KEY,name TEXT)")
+        cursor.execute("CREATE TABLE data (id INT PRIMARY KEY,type TEXT,name TEXT)")
 
     # 检查链接表是否存在
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='links'")
@@ -64,8 +64,8 @@ def writeDb(data):
 
     # 插入数据
     for item in data:
-        values = (int(item['id']),str(item['name']))
-        cursor.execute("INSERT OR IGNORE INTO data (id ,name) VALUES (?, ?)", values)
+        values = (int(item['id']),str(item['type']),str(item['name']))
+        cursor.execute("INSERT OR IGNORE INTO data (id ,type,name) VALUES (?, ? , ?)", values)
 
         # data_id = cursor.lastrowid
 

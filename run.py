@@ -10,7 +10,7 @@ from open_requests import open_http
 from bs4 import BeautifulSoup
 
 
-def data_pages(deta):
+def data_pages(deta,tepy_name):
     for data_link in deta.find_all(class_='cook-img'):
         name_link = url + data_link.get("href")
         ulr_id = name_link.split("/")[-1].split(".")[0]
@@ -95,7 +95,7 @@ def data_pages(deta):
                 data = [{
                     'id': ulr_id,
                     'name': rename[0],
-                    # 'type':'家常菜',
+                    'type':tepy_name,
                     'materials': mate,
                     'links': img_link_list,
                     'actions': set_list
@@ -115,12 +115,25 @@ header = soup.find(class_="imublo clearfix")
 
 """get channel"""
 channel = []
+# 'https://www.douguo.com/caipu/汤',
+# #'https://www.douguo.com/caipu/早餐',
+# #'https://www.douguo.com/caipu/午餐',
+# #'https://www.douguo.com/caipu/海鲜',
+# #'https://www.douguo.com/caipu/孕妇',
+# #'https://www.douguo.com/caipu/甜品',
+# #'https://www.douguo.com/caipu/粥',
+# #'https://www.douguo.com/caipu/宝宝食谱',
+# #'https://www.douguo.com/caipu/糕点',
+# #'https://www.douguo.com/caipu/微波炉'
+# ]
 for link in header.find_all("a"):
     channel.append(url + link.get('href'))
-# print(channel)
+print(channel)
 #
 for link_1 in channel:
     print(link_1)
+    tepy_name=link_1.split("/")[-1]
+    print(tepy_name)
     url_en = urllib.parse.quote(link_1, safe='/:')
     res_1 = open_http(url_en)
     res_soup = BeautifulSoup(res_1, "html.parser")
@@ -146,7 +159,7 @@ for link_1 in channel:
     mt20 = deta_soup.find(class_='pages')
     # print(mt20)
     while True:
-        data_pages(deta_soup)
+        data_pages(deta_soup,tepy_name)
         if ("下一页" in str(mt20)):
             link_list_anext = []
             for anext_link in mt20.find_all(class_="anext"):
