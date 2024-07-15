@@ -114,22 +114,25 @@ soup = BeautifulSoup(f_rest, "html.parser")
 header = soup.find(class_="imublo clearfix")
 
 """get channel"""
-channel = []
-# 'https://www.douguo.com/caipu/汤',
-# #'https://www.douguo.com/caipu/早餐',
-# #'https://www.douguo.com/caipu/午餐',
-# #'https://www.douguo.com/caipu/海鲜',
-# #'https://www.douguo.com/caipu/孕妇',
-# #'https://www.douguo.com/caipu/甜品',
-# #'https://www.douguo.com/caipu/粥',
-# #'https://www.douguo.com/caipu/宝宝食谱',
-# #'https://www.douguo.com/caipu/糕点',
-# #'https://www.douguo.com/caipu/微波炉'
-# ]
-for link in header.find_all("a"):
-    channel.append(url + link.get('href'))
-print(channel)
-#
+channel = [
+    # 'https://www.douguo.com/caipu/热菜',
+    # 'https://www.douguo.com/caipu/凉菜',
+    # 'https://www.douguo.com/caipu/主食',
+    # 'https://www.douguo.com/caipu/汤',
+    # 'https://www.douguo.com/caipu/早餐',
+    # 'https://www.douguo.com/caipu/午餐',
+    # 'https://www.douguo.com/caipu/海鲜',
+    # 'https://www.douguo.com/caipu/孕妇',
+    # 'https://www.douguo.com/caipu/甜品',
+    # 'https://www.douguo.com/caipu/粥',
+    # 'https://www.douguo.com/caipu/宝宝食谱',
+    # 'https://www.douguo.com/caipu/糕点',
+    'https://www.douguo.com/caipu/微波炉'
+]
+# for link in header.find_all("a"):
+#     channel.append(url + link.get('href'))
+# print(channel)
+# #
 for link_1 in channel:
     print(link_1)
     tepy_name=link_1.split("/")[-1]
